@@ -1,7 +1,10 @@
-const fastify = require("fastify")(); // a new fastify app
+const fastify = require("fastify")(); // Create Fastify instance
 const { attachApi } = require("msiki");
 
-(async()=> {
-    const app = await attachApi(fastify) // returns the fastifyApp after attaching certian routes.
-    await app.listen({ port: 8080 }, ()=> console.log("Server is up!")) // starting the server!
-})()
+(async () => {
+  const app = await attachApi(fastify);
+  const PORT = process.env.PORT || 3000;
+  await app.listen({ port: PORT, host: "0.0.0.0" }, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+})();
