@@ -1,5 +1,5 @@
 const fastify = require("fastify")(); // a new fastify app
-const { attachApi } = require("siki");
+const { attachApi } = require("msiki");
 
 (async()=> {
     const app = await attachApi(fastify) // returns the fastifyApp after attaching certian routes.
